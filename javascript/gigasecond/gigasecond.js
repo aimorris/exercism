@@ -1,11 +1,6 @@
-function Gigasecond(birth) {
- let newDate = new Date();
- newDate.setTime(birth.getTime() + Math.pow(10, 9) * 1000);
+export const gigasecond = function (birth) {
+ let out = new Date();
+ out.setTime(birth.getTime() + 1e12);
 
- this.date = function() {
-   return newDate;
- }
-
+ return out;
 }
-
-module.exports = Gigasecond;
