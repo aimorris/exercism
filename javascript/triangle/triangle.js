@@ -1,7 +1,6 @@
 export class Triangle {
   constructor(a, b, c) {
-    this.sides = [a, b, c];
-    this.sides.sort((a, b) => a - b);
+    this.sides = [a, b, c].sort((a, b) => a - b);
   }
 
   kind() {
