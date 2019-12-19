@@ -5,21 +5,22 @@ export class Triangle {
 
   kind() {
     const sides = this.sides;
+
   	if (sides[0] + sides[1] < sides[2])
   		throw new Error("violates triangle inequality");
   	
     if (sides[0] <= 0)
   		throw new Error("triangle with invalid side length");
-  	
-    if (sides[0] == sides[1] && sides[1] == sides[2])
-  		return 'equilateral';
-  	
-    if (sides[0] == sides[1] || sides[1] == sides[2] || sides[2] == sides[0])
-    	return 'isosceles';
-    
-    if (sides[0] !== sides[1] && sides[1] !== sides[2] && sides[0] !== sides[2])
-    	return 'scalene';
 
-    throw new Error("error!");
+    switch (new Set(this.sides).size) {
+      case 1:
+        return 'equilateral';
+      case 2:
+        return 'isosceles';
+      case 3:
+        return 'scalene';
+      default:
+        throw new Error("error");
     }
+  }
 }
