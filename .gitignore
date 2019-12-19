@@ -4,3 +4,5 @@ package.json
 .exercism/
 .eslintrc
 babel.config.js
+package.yaml
+stack.yaml
