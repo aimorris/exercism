@@ -12,15 +12,12 @@ export class Triangle {
     if (sides[0] <= 0)
   		throw new Error("triangle with invalid side length");
 
-    switch (new Set(this.sides).size) {
-      case 1:
-        return 'equilateral';
-      case 2:
-        return 'isosceles';
-      case 3:
-        return 'scalene';
-      default:
-        throw new Error("error");
-    }
+    return TRIANGLE_TYPES[new Set(this.sides).size];
   }
+}
+
+export const TRIANGLE_TYPES = {
+  1: 'equilateral',
+  2: 'isosceles',
+  3: 'scalene'
 }
