@@ -23,8 +23,8 @@ export class Clock {
     return new Clock(this.hour, this.minute - minutes);
   }
 
-  equals() {
-    throw new Error('Remove this statement and implement this function');
+  equals(clock) {
+    return this.toString() == clock.toString();
   }
 }
 
