@@ -9,10 +9,7 @@ export class Clock {
     let hour = convert(this.hour, this.minute)[0];
     let minute = convert(this.hour, this.minute)[1];
 
-    let hourString = (hour < 10) ? '0' + hour : hour;
-    let minuteString = (minute < 10) ? '0' + minute : minute;
-
-    return hourString + ':' + minuteString;
+    return format(hour) + ':' + format(minute);
   }
 
   plus(minutes) {
@@ -27,6 +24,8 @@ export class Clock {
     return this.toString() == clock.toString();
   }
 }
+
+export const format = (x) => (x < 10 ? '0' : '') + x
 
 export const convert = function (hour, minute) {
   minute += hour*60;
