@@ -9,7 +9,7 @@ export class Clock {
     let hour = convert(this.hour, this.minute)[0];
     let minute = convert(this.hour, this.minute)[1];
 
-    return format(hour) + ':' + format(minute);
+    return unitFormat(hour) + ':' + unitFormat(minute);
   }
 
   plus(minutes) {
@@ -21,18 +21,16 @@ export class Clock {
   }
 
   equals(clock) {
-    return this.toString() == clock.toString();
+    return this.toString() === clock.toString();
   }
 }
 
-export const format = (x) => (x < 10 ? '0' : '') + x
+export const unitFormat = (x) => (x < 10 ? '0' : '') + x
 
 export const convert = function (hour, minute) {
   minute += hour*60;
 
-  while (minute < 0) {
-    minute += 1440;
-  }
+  while (minute < 0) minute += 1440;
 
   if (minute >= 0) {
     hour = Math.floor(minute/60)%24;
