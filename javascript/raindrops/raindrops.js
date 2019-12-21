@@ -9,7 +9,6 @@ export const convert = (x) => {
   if (x % 3 == 0) str += 'Pling';
   if (x % 5 == 0) str += 'Plang';
   if (x % 7 == 0) str += 'Plong';
-  if (str.length == 0) str += x;
 
-  return str;
+  return str || x.toString();
 };
