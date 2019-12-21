@@ -1,13 +1,13 @@
 
 export class Clock {
   constructor(hour = 0, minute = 0) {
-    this.hour = hour;
-    this.minute = minute;
+    this.hour = convert(hour, minute)[0];
+    this.minute = convert(hour, minute)[1];
   }
 
   toString() {
-    let hour = convert(this.hour, this.minute)[0];
-    let minute = convert(this.hour, this.minute)[1];
+    let hour = this.hour;
+    let minute = this.minute;
 
     return unitFormat(hour) + ':' + unitFormat(minute);
   }
