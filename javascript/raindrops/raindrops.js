@@ -5,15 +5,11 @@
 
 export const convert = (x) => {
   let str = '';
-  
-  if (factors(x).includes(3)) str += 'Pling';
-  if (factors(x).includes(5)) str += 'Plang';
-  if (factors(x).includes(7)) str += 'Plong';
+
+  if (x % 3 == 0) str += 'Pling';
+  if (x % 5 == 0) str += 'Plang';
+  if (x % 7 == 0) str += 'Plong';
   if (str.length == 0) str += x;
 
   return str;
 };
-
-export const factors = (number) => {
-    return [...Array(number).keys(), number].filter(x => number % x == 0);
-}
