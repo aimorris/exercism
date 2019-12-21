@@ -6,10 +6,7 @@ export class Clock {
   }
 
   toString() {
-    let hour = this.hour;
-    let minute = this.minute;
-
-    return unitFormat(hour) + ':' + unitFormat(minute);
+    return unitFormat(this.hour) + ':' + unitFormat(this.minute);
   }
 
   plus(minutes) {
