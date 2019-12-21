@@ -3,10 +3,7 @@
 // convenience to get you started writing code faster.
 //
 
-export const score = (word) => {
-  let total = 0;
-  return word.toLowerCase().split('').reduce((x, y) => x + SCORES[y], 0);
-};
+export const score = (word) => word.toLowerCase().split('').reduce((x, y) => x + SCORES[y], 0);
 
 export const SCORES = {
     a: 1,
