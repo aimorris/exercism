@@ -4,7 +4,7 @@ export class Allergies {
   }
 
   list() {
-    return POSSIBLE_ALLERGIES.filter((x, i) => this.allergies[i] == true);
+    return POSSIBLE_ALLERGIES.filter((x, i) => this.allergies[i] === '1');
   }
 
   allergicTo(x) {
