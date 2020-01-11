@@ -1,19 +1,13 @@
 export class Matrix {
-  constructor(string) {
-    this.matrixArray = string.split('\n').map(x => x.split(' ').map(x => Number(x)));
+  constructor(input) {
+    this.input = input;
   }
 
   get rows() {
-    return this.matrixArray;
+    return this.input.split('\n').map(x => x.split(' ').map(x => Number(x)));;
   }
 
   get columns() {
-    let out = [];
-    for (let i = 0; i <= this.matrixArray.length; i++) {
-      let array = [];
-      this.matrixArray.map(x => array.push(x[i]))
-      out.push(array);
-    }
-    return out;
+    return this.rows[0].map((_, i) => this.rows.map(row => row[i]));
   }
 }
