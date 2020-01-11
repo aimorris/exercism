@@ -4,10 +4,16 @@ export class Matrix {
   }
 
   get rows() {
-    return this.input.split('\n').map(x => x.split(' ').map(x => Number(x)));;
+    if (!this._rows)
+      this._rows = this.input.split('\n').map(x => x.split(' ').map(x => Number(x)));
+
+    return this._rows;
   }
 
   get columns() {
-    return this.rows[0].map((_, i) => this.rows.map(row => row[i]));
+    if (!this._columns)
+      this._columns = this.rows[0].map((_, i) => this.rows.map(row => row[i]));
+
+    return this._columns;
   }
 }
