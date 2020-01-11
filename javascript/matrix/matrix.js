@@ -1,7 +1,6 @@
 export class Matrix {
   constructor(string) {
     this.matrixArray = string.split('\n').map(x => x.split(' ').map(x => Number(x)));
-    console.log(this.matrixArray);
   }
 
   get rows() {
@@ -9,6 +8,12 @@ export class Matrix {
   }
 
   get columns() {
-    throw new Error("Remove this statement and implement this function");
+    let out = [];
+    for (let i = 0; i <= this.matrixArray.length; i++) {
+      let array = [];
+      this.matrixArray.map(x => array.push(x[i]))
+      out.push(array);
+    }
+    return out;
   }
 }
