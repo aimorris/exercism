@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-echo "Hello, World!"
+main () {
+  echo "Hello, World!"
+}
+
+main
