@@ -25,7 +25,7 @@ export class Triangle {
       row.push(1);
       out.push(row);
     }
-    console.log(out);
+
     return out;
   }
 }
