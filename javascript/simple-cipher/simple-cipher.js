@@ -18,13 +18,14 @@ export class Cipher {
     }
 
     return string.split('').map(function (letter, i) {
-      var alphaCode = string.charCodeAt(i) - 97;
-      var cipherAlphaCode = this.key.charCodeAt(i) - 97;
+      let alphaCode = string.charCodeAt(i) - 97;
+      let cipherAlphaCode = this.key.charCodeAt(i) - 97;
+      let newLetter;
 
       if (alphaCode + cipherAlphaCode > 25) {
-        var newLetter = alphaCode + cipherAlphaCode - 26;
+        newLetter = alphaCode + cipherAlphaCode - 26;
       } else {
-        var newLetter = alphaCode + cipherAlphaCode;
+        newLetter = alphaCode + cipherAlphaCode;
       }
 
       return String.fromCharCode(newLetter + 97);
@@ -38,13 +39,14 @@ export class Cipher {
     }
 
     return string.split('').map(function (letter, i) {
-      var alphaCode = string.charCodeAt(i) - 97;
-      var cipherAlphaCode = this.key.charCodeAt(i) - 97;
+      let alphaCode = string.charCodeAt(i) - 97;
+      let cipherAlphaCode = this.key.charCodeAt(i) - 97;
+      let newLetter;
 
       if (alphaCode - cipherAlphaCode < 0) {
-        var newLetter = alphaCode - cipherAlphaCode + 26;
+        newLetter = alphaCode - cipherAlphaCode + 26;
       } else {
-        var newLetter = alphaCode - cipherAlphaCode;
+        newLetter = alphaCode - cipherAlphaCode;
       }
 
       return String.fromCharCode(newLetter + 97);
