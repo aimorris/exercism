@@ -7,7 +7,7 @@ classify x
   | x < 1 = Nothing
   | classification > x = Just Abundant
   | classification < x = Just Deficient
-  | otherwise = Just Deficient
+  | otherwise = Just Perfect
   where classification = sum (factorsOf x)
 
 isFactorOf :: Int -> Int -> Bool
