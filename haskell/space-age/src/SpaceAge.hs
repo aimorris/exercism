@@ -9,6 +9,9 @@ data Planet = Mercury
             | Uranus
             | Neptune
 
+secondsInEarthYear :: Float
+secondsInEarthYear = 31557600
+
 planetFactor :: Planet -> Float
 planetFactor x = case x of
   Mercury -> 0.2408467
@@ -21,4 +24,4 @@ planetFactor x = case x of
   Neptune -> 164.79132
 
 ageOn :: Planet -> Float -> Float
-ageOn planet seconds = seconds / 31557600 / planetFactor planet
+ageOn planet seconds = seconds / secondsInEarthYear / planetFactor planet
