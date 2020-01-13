@@ -6,9 +6,8 @@ classify :: Int -> Maybe Classification
 classify x
   | x < 1 = Nothing
   | classification > x = Just Abundant
-  | classification == x = Just Perfect
   | classification < x = Just Deficient
-  | otherwise = Nothing
+  | otherwise = Just Deficient
   where classification = sum (factorsOf x)
 
 isFactorOf :: Int -> Int -> Bool
