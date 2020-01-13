@@ -5,10 +5,11 @@ data Classification = Deficient | Perfect | Abundant deriving (Eq, Show)
 classify :: Int -> Maybe Classification
 classify x
   | x < 1 = Nothing
-  | sum (factorsOf x) > x = Just Abundant
-  | sum (factorsOf x) == x = Just Perfect
-  | sum (factorsOf x) < x = Just Deficient
+  | classification > x = Just Abundant
+  | classification == x = Just Perfect
+  | classification < x = Just Deficient
   | otherwise = Nothing
+  where classification = sum (factorsOf x)
 
 isFactorOf :: Int -> Int -> Bool
 isFactorOf factor num = num `rem` factor == 0
