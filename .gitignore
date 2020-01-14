@@ -22,8 +22,5 @@ bower_components/
 output/
 bower.json
 
-# Ballerina
-tests/
-
 # Exercism
 .exercism/
