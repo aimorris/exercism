@@ -1,17 +1,29 @@
+# JavaScript
 package-lock.json
 node_modules/
 package.json
-.exercism/
 .eslintrc
 babel.config.js
+*.spec.js
+
+# Haskell
 package.yaml
 stack.yaml
 *.lock
 *.cabal
 .stack-work/
-*.spec.js
+
+# Bash
 test/
 *_test.sh
+
+# PureScript
 bower_components/
 output/
 bower.json
+
+# Ballerina
+tests/
+
+# Exercism
+.exercism/
