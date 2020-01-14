@@ -6,3 +6,5 @@ A link to my Exercism profile can be found [here](https://exercism.io/profiles/A
 ## In-Progress
 - JavaScript
 - Haskell
+- PureScript
+- Bash
