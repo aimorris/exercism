@@ -12,3 +12,6 @@ stack.yaml
 *.spec.js
 test/
 *_test.sh
+bower_components/
+output/
+bower.json
