@@ -1,6 +1,7 @@
 module HelloWorld where
+
+import Prelude
 import Data.Maybe (Maybe (..))
-import Data.Semigroup ((<>))
 
 helloWorld :: Maybe String -> String
 helloWorld (Just x) = "Hello, " <> x <> "!"
