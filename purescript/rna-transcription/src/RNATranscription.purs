@@ -14,4 +14,4 @@ nucleotide x = case x of
   _ -> Nothing
 
 toRNA :: String -> Maybe String
-toRNA x = map String.fromCharArray $ traverse nucleotide $ String.toCharArray x
+toRNA = map String.fromCharArray <<< traverse nucleotide <<< String.toCharArray
