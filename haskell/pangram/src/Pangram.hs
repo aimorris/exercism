@@ -1,4 +1,5 @@
 module Pangram (isPangram) where
+  
 import qualified Data.Set as Set
 import qualified Data.Char as Char
 
