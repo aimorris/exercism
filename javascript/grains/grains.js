@@ -10,12 +10,7 @@ export class Grains {
     return this.numOfGrains(x).toString();
   }
 
-  total(numOfSquares) {
-    let sum = BigInteger(0);
-    for (let i = 0; i <= numOfSquares; i++) {
-      sum = sum.plus(this.numOfGrains(i));
-    }
-
-    return sum.toString();
+  total(n) {
+    return BigInteger(2).pow(n).minus(1).toString();
   }
 }
