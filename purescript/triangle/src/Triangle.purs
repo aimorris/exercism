@@ -3,6 +3,7 @@ module Triangle (Triangle(Equilateral, Isosceles, Scalene), triangleKind) where
 import Data.Either (Either (..))
 import Data.Set as Set
 import Prelude
+import Data.Array as Array
 
 data Triangle = Equilateral
               | Isosceles
@@ -14,13 +15,15 @@ instance showTriangle :: Show Triangle
         show Isosceles = "Isosceles"
         show Scalene = "Scalene"
 
+findKind :: Array Int -> Either String Triangle
+findKind x = case Array.length x of
+  1 -> Right Equilateral
+  2 -> Right Isosceles
+  3 -> Right Scalene
+  _ -> Left "Not a triangle"
+
 triangleKind :: Int -> Int -> Int -> Either String Triangle
-triangleKind s1 s2 s3 = findKind s1 s2 s3
-  where triangleSet = Set.fromFoldable [s1, s2, s3]
-        findKind :: Int -> Int -> Int -> Either String Triangle
-        findKind x y z
-          | x < 1 || y < 1 || z < 1 = Left "Invalid lengths"
-          | x + y < z || y + z < x || z + x < y = Left "Violates inequality"
-          | Set.size triangleSet == 1 = Right Equilateral
-          | Set.size triangleSet == 2 = Right Isosceles
-          | otherwise = Right Scalene
+triangleKind s1 s2 s3
+  | s1 < 1 || s2 < 1 || s3 < 1 = Left "Invalid lengths"
+  | s1 + s2 < s3 || s2 + s3 < s1 || s3 + s1 < s2 = Left "Violates inequality"
+  | otherwise = findKind $ Set.toUnfoldable $ Set.fromFoldable [s1, s2, s3]
