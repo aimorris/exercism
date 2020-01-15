@@ -1,16 +1,10 @@
 import BigInteger from './lib/big-integer';
 
-export class Grains {
+export const numOfGrains = (x) => BigInteger(2).pow(x - 1)
 
-  numOfGrains(x) {
-    return BigInteger(2).pow(x - 1);
-  }
-
-  square(x) {
-    return this.numOfGrains(x).toString();
-  }
-
-  total(n) {
-    return BigInteger(2).pow(n).minus(1).toString();
-  }
+export const square = (x) => {
+  if (x < 1 || x > 64) throw new Error('square must be between 1 and 64')
+  return numOfGrains(x).toString()
 }
+
+export const total = () => numOfGrains(65).minus(1).toString()
