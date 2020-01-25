@@ -4,7 +4,9 @@ This repository contains my solutions for the programming exercises on [exercism
 A link to my Exercism profile can be found [here](https://exercism.io/profiles/Adam-Morris).
 
 ## In-Progress
-- JavaScript
-- Haskell
-- PureScript
 - Bash
+- CoffeeScript
+- Go
+- Haskell
+- JavaScript
+- PureScript
