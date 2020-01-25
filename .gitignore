@@ -1,10 +1,16 @@
-# JavaScript
-package-lock.json
-node_modules/
-package.json
-.eslintrc
-babel.config.js
-*.spec.js
+# Bash
+test/
+*_test.sh
+
+# CoffeeScript
+*.spec.coffee
+
+# Exercism
+.exercism/
+
+# Go
+go.mod
+*_test.go
 
 # Haskell
 package.yaml
@@ -13,14 +19,15 @@ stack.yaml
 *.cabal
 .stack-work/
 
-# Bash
-test/
-*_test.sh
+# JavaScript
+package-lock.json
+node_modules/
+package.json
+.eslintrc
+babel.config.js
+*.spec.js
 
 # PureScript
 bower_components/
 output/
 bower.json
-
-# Exercism
-.exercism/
