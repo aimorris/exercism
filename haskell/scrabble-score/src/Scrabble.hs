@@ -33,4 +33,4 @@ scoreLetter x = case toUpper x of
   _ -> 0
 
 scoreWord :: String -> Integer
-scoreWord = foldl (\x y -> x + scoreLetter y) 0 . map toUpper
+scoreWord = sum . map scoreLetter
