@@ -1,56 +1,27 @@
 export class Cipher {
 
-  constructor(key) {
-    if (key == null) {
-      this.key = 'ggggggggggg';
-    } else if (!/([a-z])+/g.test(key)) {
-      throw Error('Bad key');
-    } else {
-      this.key = key;
-    }
+  constructor(key = 'aaaaaaaaaa') {
+    if (!/[a-z]+/.test(key)) return new Error()
+    this.key = key;
   }
 
+  encode(string) { return coder(string, this.key, false) }
 
-  encode(string) {
-    if (string.length > this.key.length) {
-      this.key += this.key;
-      this.encode(string);
-    }
+  decode(string) { return coder(string, this.key, true) }
+}
 
-    return string.split('').map(function (letter, i) {
-      let alphaCode = string.charCodeAt(i) - 97;
-      let cipherAlphaCode = this.key.charCodeAt(i) - 97;
-      let newLetter;
+const coder = (string, key, bool) => {
+  while (string.length > key.length) key += key
 
-      if (alphaCode + cipherAlphaCode > 25) {
-        newLetter = alphaCode + cipherAlphaCode - 26;
-      } else {
-        newLetter = alphaCode + cipherAlphaCode;
-      }
+  return [...string].map((letter, i) => {
+    let alphaCodes = (string.charCodeAt(i) - 97) + (key.charCodeAt(i) - 97) * (bool ? -1 : 1);
+    let newLetter = alphaCodes;
 
-      return String.fromCharCode(newLetter + 97);
-    }, this).join('');
-  }
+    if (bool)
+      newLetter += (alphaCodes < 0 ? 26 : 0)
+    else
+      newLetter -= (alphaCodes > 25 ? 26 : 0)
 
-  decode(string) {
-    if (string.length > this.key.length) {
-      this.key += this.key;
-      this.decode(string);
-    }
-
-    return string.split('').map(function (letter, i) {
-      let alphaCode = string.charCodeAt(i) - 97;
-      let cipherAlphaCode = this.key.charCodeAt(i) - 97;
-      let newLetter;
-
-      if (alphaCode - cipherAlphaCode < 0) {
-        newLetter = alphaCode - cipherAlphaCode + 26;
-      } else {
-        newLetter = alphaCode - cipherAlphaCode;
-      }
-
-      return String.fromCharCode(newLetter + 97);
-    }, this).join('');
-  }
-
+    return String.fromCharCode(newLetter + 97);
+  }).join('');
 }
