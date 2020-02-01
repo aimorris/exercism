@@ -5,21 +5,13 @@ export class Clock {
     this.minute = convert(hour, minute)[1];
   }
 
-  toString() {
-    return unitFormat(this.hour) + ':' + unitFormat(this.minute);
-  }
+  toString() { return unitFormat(this.hour) + ':' + unitFormat(this.minute) }
 
-  plus(minutes) {
-    return new Clock(this.hour, this.minute + minutes);
-  }
+  plus(minutes) { return new Clock(this.hour, this.minute + minutes) }
 
-  minus(minutes) {
-    return new Clock(this.hour, this.minute - minutes);
-  }
+  minus(minutes) { return new Clock(this.hour, this.minute - minutes) }
 
-  equals(clock) {
-    return this.toString() === clock.toString();
-  }
+  equals(clock) { return this.toString() === clock.toString() }
 }
 
 export const unitFormat = (x) => (x < 10 ? '0' : '') + x
