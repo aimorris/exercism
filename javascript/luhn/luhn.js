@@ -1,9 +1,7 @@
 export const valid = number => {
-
   let num = number.replace(/\s/g,'');
 
-  if (num.length <= 1)
-    return false;
+  if (num.length <= 1) return false;
 
   return reducedNumber(num) % 10 === 0
 };
