@@ -1,7 +1,6 @@
 export const classify = (num) => {
 
-  if (num < 1)
-    throw new Error('Classification is only possible for natural numbers.');
+  if (num < 1) throw new Error('Classification is only possible for natural numbers.');
 
   let classification = sumOfArray(factorise(num));
 
@@ -14,19 +13,12 @@ export const classify = (num) => {
   }
 }
 
-export const sumOfArray = (arr) => {
-  return arr.reduce( (acc, cur) => {
-      return acc + cur
-    }, 0);
-}
+export const sumOfArray = (arr) => arr.reduce( (acc, cur) => { return acc + cur }, 0)
 
 export const factorise = (num) => {
   let out = [];
-
-  for (let i = 0; i < num; i++) {
-    if (num % i === 0)
-      out.push(i);
-  }
+  
+  for (let i = 0; i < num; i++) { if (num % i === 0) out.push(i) }
 
   return out;
 }
