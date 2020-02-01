@@ -1,1 +1,1 @@
-export const twoFer = (who) => "One for " + (who || "you") + ", one for me.";
+export const twoFer = (who = 'you') => `One for ${who}, one for me.`
