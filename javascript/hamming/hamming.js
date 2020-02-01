@@ -6,5 +6,5 @@ export const compute = (seqA, seqB) => {
     throw new Error('left and right strands must be of equal length');
   }
 
-  return seqA.split('').filter((x, i) => x !== seqB[i]).length;
+  return [...seqA].filter((x, i) => x !== seqB[i]).length;
 };

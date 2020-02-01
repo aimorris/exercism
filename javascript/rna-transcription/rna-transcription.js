@@ -1,4 +1,4 @@
-export const toRna = (dna) => dna.split('').map(x => TRANSCRIPTION[x]).join('');
+export const toRna = (dna) => [...dna].map(x => TRANSCRIPTION[x]).join('');
 
 export const TRANSCRIPTION = {
     G: 'C',
