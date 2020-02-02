@@ -4,7 +4,7 @@ import Data.Array hiding (singleton)
 import Data.Maybe (fromMaybe)
 import Data.String.CodeUnits (toCharArray, singleton)
 import Data.String.Utils (repeat)
-import Prelude (map, ($), (*), (-), (<>))
+import Prelude (map, ($), (*), (-), (<>), (<<<))
 
 alphabet :: Array Char
 alphabet = toCharArray "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -18,7 +18,7 @@ row x 0 = (repeatString (numOfSpaces x 0) " ") <> "A" <> (repeatString (numOfSpa
 row x y = (repeatString (numOfSpaces x y) " ") <> singleton (getChar y) <> (repeatString ((2*y)-1) " ") <> singleton (getChar y) <> (repeatString (numOfSpaces x y) " ")
 
 getChar :: Int -> Char
-getChar x = fromMaybe 'A' $ index alphabet x
+getChar = fromMaybe 'A' <<< index alphabet
 
 numOfSpaces :: Char -> Int -> Int
 numOfSpaces x y = (fromMaybe 0 $ elemIndex x alphabet) - y
