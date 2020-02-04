@@ -24,6 +24,6 @@ findKind x = case Array.length x of
 
 triangleKind :: Int -> Int -> Int -> Either String Triangle
 triangleKind s1 s2 s3
-  | s1 < 1 || s2 < 1 || s3 < 1 = Left "Invalid lengths"
+  | s1 <= 0 || s2 <= 0 || s3 <= 0 = Left "Invalid lengths"
   | s1 + s2 < s3 || s2 + s3 < s1 || s3 + s1 < s2 = Left "Violates inequality"
   | otherwise = findKind $ Set.toUnfoldable $ Set.fromFoldable [s1, s2, s3]
