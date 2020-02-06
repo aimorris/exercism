@@ -1,3 +1,3 @@
-export const findAnagrams = (word, list) => list.filter(x => (word.toLowerCase() !== x.toLowerCase()) && (sorted(x) == sorted(word)))
+export const findAnagrams = (w, l) => l.filter(x => w.toLowerCase() !== x.toLowerCase() && sorted(x) == sorted(w))
 
-export const sorted = (x) => x.toLowerCase().split('').sort().join('')
+export const sorted = x => [...x.toLowerCase()].sort().join('')
