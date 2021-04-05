@@ -32,3 +32,12 @@ babel.config.js
 bower_components/
 output/
 bower.json
+
+# Scala
+target/
+.metals
+build.sbt
+project/
+
+# VS Code
+.vscode
